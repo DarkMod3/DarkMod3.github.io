@@ -1,0 +1,176 @@
+:root {
+    --bg-color: #0d0d0d; /* Cor de fundo */
+    --primary-color: #6f42c1; /* Cor roxa dos botões */
+    --hover-color: #5a30a1; /* Cor roxa escura ao passar o mouse */
+    --modal-bg: #1e1e1e; /* Fundo dos modais */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    text-align: center;
+    background: linear-gradient(135deg, #1f1f1f, #333);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 1s ease-out;
+    width: 350px;
+}
+
+input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(111, 66, 193, 0.5);
+    background-color: #444;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+button {
+    background-color: var(--primary-color); /* Cor roxa */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin: 5px;
+    width: auto;
+    box-shadow: 0 6px 15px rgba(111, 66, 193, 0.3);
+    animation: fadeIn 1s ease-out;
+}
+
+button:hover {
+    background-color: var(--hover-color); /* Cor roxa escura ao passar o mouse */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(111, 66, 193, 0.5);
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.notification {
+    position: fixed;
+    right: -320px;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    width: 320px;
+    height: 80px;
+    transition: right 0.5s ease;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.credits-content,
+.modal-content {
+    background-color: var(--modal-bg);
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #ff4d4d;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 5px;
+    background-color: #555;
+    border-radius: 5px;
+    width: 90%;
+    overflow: hidden;
+}
+
+.progress-bar div {
+    height: 100%;
+    background-color: #bbb;
+    width: 100%;
+    animation: progress 6s linear forwards;
+}
+
+@keyframes progress {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+
+#info-modal {
+    display: none; 
+}
