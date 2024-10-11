@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eu sou bonito?</title>
+    <link rel="icon" href="https://i.imgur.com/xmIkAy6.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Fonte moderna -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Fonte moderna */
+            text-align: center;
+            margin-top: 50px;
+            background-color: #121212; /* Cor de fundo escura */
+            color: #ffffff; /* Cor do texto branca */
+        }
+        #pergunta {
+            font-size: 28px; /* Tamanho maior para destaque */
+            color: #ffffff; /* Cor do texto branca */
+            margin-bottom: 30px; /* Maior espaçamento inferior */
+        }
+        #botoes {
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Maior espaçamento entre botões */
+        }
+        button {
+            padding: 12px 24px; /* Aumentar o padding */
+            font-size: 20px; /* Tamanho do texto maior */
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #1e1e1e; /* Fundo do botão escuro */
+            color: #ffffff; /* Cor do texto do botão branca */
+            border: 1px solid #ffffff; /* Borda branca */
+            transition: background-color 0.3s, transform 0.3s; /* Transição suave */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra nos botões */
+        }
+        button:hover {
+            background-color: #333; /* Fundo do botão ao passar o mouse */
+            transform: translateY(-2px); /* Levantar o botão levemente ao passar o mouse */
+        }
+        #mensagem {
+            display: none;
+            margin-top: 30px; /* Maior espaçamento superior */
+            font-size: 20px; /* Tamanho do texto maior */
+            font-style: italic;
+            color: rgb(235, 8, 197);
+            animation: fadeIn 0.5s; /* Animação ao exibir a mensagem */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        function moverAleatorio() {
+            var novoTop = Math.floor(Math.random() * (window.innerHeight - 100));
+            var novoLeft = Math.floor(Math.random() * (window.innerWidth - 100));
+            document.getElementById('nao').style.position = 'absolute';
+            document.getElementById('nao').style.top = novoTop + 'px';
+            document.getElementById('nao').style.left = novoLeft + 'px';
+        }
+
+        function exibirMensagem() {
+            document.getElementById('mensagem').innerText = 'Você também é linda! Princesa ❤';
+            document.getElementById('mensagem').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1 id="pergunta">Eu sou bonito?</h1>
+        <div id="botoes">
+            <button id="nao" onmouseover="moverAleatorio()">Não</button>
+            <button onclick="exibirMensagem()">Sim</button>
+        </div>
+        <p id="mensagem"></p>
+    </div>
+</body>
+</html>
